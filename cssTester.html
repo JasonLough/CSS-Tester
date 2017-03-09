@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Tester</title>
+	<script src='/test/lib/jquery.js'></script>
+	<script>
+
+		$(function() {
+
+			$('#ta').keypress( function(e) {
+
+				if(e.keyCode === 13) { //enter pressed...
+					$('*').removeClass('selected')
+					let inputs = $(this).val().split('\n')
+					let val = inputs[inputs.length -1]
+					console.log(val)
+					$(val).addClass('selected')	
+				}				
+			})
+
+		})
+
+	</script>
+	<style>
+		* {
+			padding:10px;
+			margin:5px;
+			box-sizing: border-box;
+		}
+
+		.selected {
+			background-color: #decaff;
+		}
+	</style>
+
+
+</head>
+<body>
+<textarea name="textin" id="ta" cols="50" rows="10"></textarea>
+
+<div>div : No styles applied</div>
+<div id="div1">div id='div1'</div>
+<div style="display:inline;">div display:inline</div>
+<div lang='fr'>div lang=fr</div>
+<br /><br />
+<p>p text content 
+	<span class='bar widget-class'>span within the p (1)</span>
+	<span class='foo bar'>
+		span within the p (2)
+		<span>span in span in p</span>
+	</span>
+	
+</p>
+
+
+
+
+	
+</body>
+</html>
